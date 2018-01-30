@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Attendance</string>
+    <string name="course_code">Course code</string>
+    <string name="course_name">Course Name</string>
+</resources>
