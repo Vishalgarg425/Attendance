@@ -11,6 +11,8 @@ import android.widget.EditText;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
+
 
 public class AddCourseDetails extends AppCompatActivity {
     private Button mDone_Button;
@@ -30,11 +32,12 @@ public class AddCourseDetails extends AppCompatActivity {
         mcourse_name=(EditText) findViewById(R.id.course_name_input);
         mcourse_code=(EditText) findViewById(R.id.course_code_input);
 
-       mDone_Button=(Button)findViewById(R.id.done_button);
+       mDone_Button=(Button)findViewById(R.id.done_bu);
        mDone_Button.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-
+               String course_name = mcourse_name.getText().toString().trim();
+               String course_code = mcourse_code.getText().toString().trim();
 
                finish();
            }
