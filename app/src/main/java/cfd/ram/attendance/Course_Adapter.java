@@ -15,21 +15,25 @@ import android.widget.TextView;
 public class Course_Adapter extends RecyclerView.Adapter<Course_Adapter.MyViewHolder> {
     private List<course> mCourseList;
 
-    public class MyViewHolder extends RecyclerView.ViewHolder{
-
-        public TextView course_code , course_name;
-
-        public MyViewHolder(View view){
-            super(view);
-            course_code = (TextView) view.findViewById(R.id.course_code);
-            course_name= (TextView) view.findViewById(R.id.course_name);
-
-        }
-
-    }
-
     public Course_Adapter(List<course> mCourseList){
         this.mCourseList = mCourseList;
+    }
+
+    public class MyViewHolder extends RecyclerView.ViewHolder{
+
+        public TextView code , name;
+
+        public MyViewHolder(View view) {
+            super(view);
+            code = (TextView) view.findViewById(R.id.course_code);
+            name = (TextView) view.findViewById(R.id.course_name);
+        }
+
+        public void BindItem(course c) {
+
+            name.setText(c.course_name);
+            code.setText(c.course_code);
+        }
     }
 
     @Override
@@ -41,9 +45,7 @@ public class Course_Adapter extends RecyclerView.Adapter<Course_Adapter.MyViewHo
     }
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        course c=mCourseList.get(position);
-        holder.course_name.setText(course.getcourse_name());
-        holder.course_code.setText(course.getcourse_code());
+        holder.BindItem(mCourseList.get(position));
 
     }
 

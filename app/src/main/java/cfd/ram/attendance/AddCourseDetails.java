@@ -7,6 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import java.io.IOException;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -44,9 +47,10 @@ public class AddCourseDetails extends AppCompatActivity {
                String course_name = mcourse_name.getText().toString().trim();
                String course_code = mcourse_code.getText().toString().trim();
                HashMap<String, String > mDataMap= new HashMap<String, String>();
-               mDataMap.put("Course Code",course_code  );
-               mProf="Professor"+ i;
-               mDataMap.put("Course Name",  course_name);
+               mDataMap.put("Course_Code",course_code  );
+               mProf="Professor"+ 2320;
+               mDataMap.put("Course_Name",  course_name);
+               mDataMap.put("Course_Code",course_code);
                mDatabase.child("Institute").child("Professor").child(mProf).child(course_code).setValue(mDataMap);
 
                finish();

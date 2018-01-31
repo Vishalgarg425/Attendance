@@ -10,6 +10,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -22,6 +23,9 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import org.w3c.dom.Comment;
 
 import java.util.*;
 
@@ -49,7 +53,7 @@ public class Prof_login extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.setAdapter(mCourse_adapter);
-        mDatabaseReference = FirebaseDatabase.getInstance().getReference().child("Professor");
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference().child("Institute").child("Professor").child("Professor2320");
 
         mFloatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,10 +64,24 @@ public class Prof_login extends AppCompatActivity {
         });
 
 
+        /*
+        course c=new course("CSN 101","Introduction to Computer Science");
+
+        mCourseList.add(c);
+        Toast.makeText(getApplicationContext(),mCourseList.get(0).course_name,Toast.LENGTH_SHORT).show();
+        mCourse_adapter.notifyDataSetChanged();
+
+        course d=new course("PHN 006","StatisticaL Mechanincs");
+        mCourseList.add(d);
+        Toast.makeText(getApplicationContext(),mCourseList.get(1).course_name,Toast.LENGTH_SHORT).show();
+        mCourse_adapter.notifyDataSetChanged();
 
         mDatabaseReference.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+
+                course c=dataSnapshot.getValue(course.class);
+                mCourseList.add(c);
 
             }
 
@@ -87,7 +105,30 @@ public class Prof_login extends AppCompatActivity {
 
             }
         });
+        */
 
+        mDatabaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                mCourseList.clear();
+
+                for (DataSnapshot postSnapShot:dataSnapshot.getChildren()){
+
+                    String course_name=(String)  postSnapShot.child("Course_Name").getValue();
+                    String course_code=(String) postSnapShot.child("Course_Code").getValue();
+                    course c=new course(course_code,course_name);
+                    mCourseList.add(c);
+
+                }
+                mCourse_adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+                Toast.makeText(getApplicationContext(),"Cancelled",Toast.LENGTH_LONG);
+            }
+        });
 
 
 

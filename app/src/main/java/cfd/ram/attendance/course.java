@@ -5,8 +5,8 @@ package cfd.ram.attendance;
  */
 
 public class course {
-    private static String course_name;
-    private static String course_code;
+     String course_name;
+     String course_code;
     public course(){
 
     }
@@ -15,7 +15,8 @@ public class course {
         this.course_name=course_name;
 
     }
-    public static String getcourse_code() {
+    public String getcourse_code()
+    {
         return course_code;
     }
 
@@ -23,7 +24,7 @@ public class course {
         this.course_code = course_code ;
     }
 
-    public static String getcourse_name() {
+    public String getcourse_name() {
         return course_name;
     }
 
