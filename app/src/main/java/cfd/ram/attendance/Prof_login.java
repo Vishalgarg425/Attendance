@@ -29,7 +29,8 @@ import org.w3c.dom.Comment;
 
 import java.util.*;
 
-public class Prof_login extends AppCompatActivity {
+public class
+Prof_login extends AppCompatActivity {
 
     private List<course> mCourseList= new ArrayList<>();
     private RecyclerView mRecyclerView;

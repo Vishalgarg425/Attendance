@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<FrameLayout
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="cfd.ram.attendance.AddCourseDetails">
+    tools:context="cfd.ram.attendance.AddCourseDetails"
+    android:id="@+id/frm">
+
+
 
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/rl_id"
         >
+
 
         <TextView
             android:layout_width="match_parent"
@@ -87,7 +92,7 @@
                     android:textSize="20dp"
                     />
 
-                <android.support.design.widget.TextInputEditText
+                <TextView
                     android:id="@+id/start_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -100,7 +105,7 @@
                     android:text="to"
                     android:layout_marginLeft="10dp"
                     android:textSize="20dp"/>
-                <android.support.design.widget.TextInputEditText
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Ending"
@@ -124,7 +129,7 @@
                     android:textSize="20dp"
                     />
 
-                <android.support.design.widget.TextInputEditText
+                <TextView
                     android:id="@+id/start_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -137,7 +142,7 @@
                     android:text="to"
                     android:layout_marginLeft="10dp"
                     android:textSize="20dp"/>
-                <android.support.design.widget.TextInputEditText
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Ending"
@@ -161,7 +166,7 @@
                     android:textSize="20dp"
                     />
 
-                <android.support.design.widget.TextInputEditText
+                <TextView
                     android:id="@+id/start_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -174,7 +179,7 @@
                     android:text="to"
                     android:layout_marginLeft="10dp"
                     android:textSize="20dp"/>
-                <android.support.design.widget.TextInputEditText
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Ending"
@@ -198,7 +203,7 @@
                     android:textSize="20dp"
                     />
 
-                <android.support.design.widget.TextInputEditText
+                <TextView
                     android:id="@+id/start_4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -211,7 +216,7 @@
                     android:text="to"
                     android:layout_marginLeft="10dp"
                     android:textSize="20dp"/>
-                <android.support.design.widget.TextInputEditText
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Ending"
@@ -235,7 +240,7 @@
                     android:textSize="20dp"
                     />
 
-                <android.support.design.widget.TextInputEditText
+                <TextView
                     android:id="@+id/start_5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -248,7 +253,7 @@
                     android:text="to"
                     android:layout_marginLeft="10dp"
                     android:textSize="20dp"/>
-                <android.support.design.widget.TextInputEditText
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Ending"
@@ -273,7 +278,7 @@
                     android:textSize="20dp"
                     />
 
-                <android.support.design.widget.TextInputEditText
+                <TextView
                     android:id="@+id/start_6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -286,13 +291,7 @@
                     android:text="to"
                     android:layout_marginLeft="10dp"
                     android:textSize="20dp"/>
-                <android.support.design.widget.TextInputEditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="Ending"
-                    android:id="@+id/end_6"
-                    android:textSize="20dp"
-                    android:layout_marginLeft="10dp"/>
+
             </LinearLayout>
 
         </android.support.design.widget.TextInputLayout>
@@ -309,5 +308,16 @@
             android:layout_marginTop="10dp"
             />
 
+        <TextView
+            android:id="@+id/end_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/contain_timing"
+            android:layout_marginBottom="11dp"
+            android:layout_toEndOf="@+id/done_bu"
+            android:hint="Ending"
+            android:textSize="20dp"/>
+
+
     </RelativeLayout>
-</ScrollView>
+</FrameLayout>
